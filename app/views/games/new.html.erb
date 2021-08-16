@@ -1,12 +1,24 @@
-<ul>
-  <% @letters.each do |letter| %>
-    <li><%= letter %></li>
-  <% end %>
-</ul>
+<div class="container mt-4">
+  <div class="row text-center">
+    <h1>Longest Word Game!</h1>
+    <p>Pick the longest word from the letters given below and hit submit!</p>
+  </div>
+  <div class="row">
+    <ul class="d-flex justify-content-center">
+      <% @letters.each do |letter| %>
+        <li class="card border col-1 text-center py-3 m-3 bg-secondary text-white fs-3"><%= letter %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
 
-<form action="/score" method="post">
-  <input type="text" name="word" placeholder="Enter your guess here">
-  <input type="submit">
-  <%= hidden_field_tag :letters, @letters %>
-  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-</form>
+<div class="container d-flex justify-content-center">
+  <div class="row">
+    <form action="/score" method="post">
+      <input type="text" name="word" placeholder="Enter your guess here">
+      <input class="btn btn-secondary" type="submit">
+      <%= hidden_field_tag :letters, @letters %>
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    </form>
+  </div>
+</div>

@@ -13,13 +13,11 @@ class GamesController < ApplicationController
   end
 
   def score
-    # first check if its an english word.
     word_serialized = URI.open("https://wagon-dictionary.herokuapp.com/#{params[:word]}").read
     dictionary = JSON.parse(word_serialized)
     if dictionary['found']
-      # now check if word can be built from letters given.
       word_array = params[:word].upcase.chars
-      letter_array = params[:letters].delete(' ').chars # puts params letters back into array
+      letter_array = params[:letters].delete(' ').chars
       @score_message = correct_letters?(word_array, letter_array) ? 'Success you win!' : 'Word cannot be built from those letters'
     else
       @score_message = "Sorry, but #{params[:word]} does not seem to be a valid Enlgish word..."
