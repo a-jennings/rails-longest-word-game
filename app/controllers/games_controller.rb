@@ -6,9 +6,7 @@ class GamesController < ApplicationController
     10.times do
       @letters.push(alphabet.sample)
     end
-    p @letters
-
-
+    @letters
   end
 
   def score
