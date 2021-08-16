@@ -1,6 +1,9 @@
-<h1>Score page</h1>
-<h2>You submitted: <%= params[:word] %></h2>
+<div class="container text-center mt-3">
+  <h1>Score page</h1>
+  <h3>You submitted: <%= params[:word] %></h2>
+  <%= @score_message %>
+</div>
 
-<%= @score_message %>
-
-<%= link_to 'Play again', new_path %>
+<div class="container text-center mt-3">
+  <%= link_to 'Play again', new_path %>
+</div>
